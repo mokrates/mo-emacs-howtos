@@ -1,0 +1,30 @@
+#+STARTUP: indent
+
+* Fonts
+
+** how to let emacs find a font for you
+
+~customize-face~ expects from you that you know the name and all
+parameters of a font. When I wasn't using GTK I found this hard. I
+found this way:
+
+Use ~describe-font~ which give you an auto-complete in the minibuffer
+which let's you look for and complete your font name. Kill the
+complete font name.
+
+Use ~set-face-font~ to set the font for the face you want to change.
+
+After this, use ~customize-font~ to open a customize buffer which is
+prefilled with the font you set with ~set-face-font~ and allows you to
+save to your ~~/.emacs~.
+
+** troubleshooting
+
+Sometimes emacs loses the fonts you define. That seems to happen with
+incompatible themes which redefine them. deinstall those themes and redefine your fonts.
+
+Sometimes there seems to be a face lookup which results in a hangup
+and the message that the face "undefined" can't be found. This usually
+can't be fixed with a restart. This, too, was caused by a faulty
+theme. Grep your ~~/.emacs~ for ~undefined~, remove that particular
+piece of configuration, remove the fauly theme and restart your emacs.

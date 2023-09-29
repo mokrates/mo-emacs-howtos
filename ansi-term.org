@@ -1,0 +1,73 @@
+#+STARTUP: indent
+
+* Ansi-Term
+
+** pasting
+
+There is a function called ~term-paste~, but it is bound to ~S-insert~
+by default. Who wants that? Use
+
+#+begin_src elisp
+  # ~/.emacs
+  (require 'term)
+  (define-key term-raw-map (kbd "C-c y") 'term-paste)
+  (define-key term-raw-map (kbd "C-c C-y") 'term-paste)
+#+end_src
+
+to rebind it to ~C-c C-y~
+
+** tmacs
+To conveniently open files from terminal even on remote machines, I
+use [[https://github.com/mokrates/tmacs][tmacswrap]]
+
+You can define a function to quickly open a tmacs-term with
+
+#+begin_src elisp
+  # ~/.emacs
+  (defun tmacs () (interactive) (ansi-term "/path/to/tmacswrap"))
+#+end_src
+	
+and then open it with ~M-x tmacs~.
+
+** emacsclient
+Add to your ~~/.bashrc~:
+#+begin_src bash
+  if [ -n "$INSIDE_EMACS" ]; then
+      export VISUAL=emacsclient   # use tmacs here, if you want
+      export EDITOR=$VISUAL
+  fi  
+#+end_src
+	
+Don't use ~emacsclient -n~ because that would confuse programs like
+~git~ when you edit your commit messages with this.
+
+** troubleshooting
+
+*** slow scrolling (emacs 26.1 has this problem)
+
+In older emacs versions ansi-term was allegedly very slow clearing the
+screen. In version 26.1 the problem seems to be fixed, but still
+triggered in a different way: Scrolling fast, if the terminal buffer
+is already full. I solved this problem by using this[fn:1]
+
+#+begin_src elisp
+  ;; Terminal buffer configuration.
+  (add-hook 'term-mode-hook 'my-term-mode-hook)
+  (defun my-term-mode-hook ()
+    ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20611
+    (setq bidi-paragraph-direction 'left-to-right))  
+#+end_src
+		
+*** terminal resizing (emacs 26.1 has this problem)
+
+Resizing the terminal in which emacs runs doesn't inform inferior
+terminals that they should be resized, too. Use this[fn:2]:
+
+#+begin_src elisp
+  (add-hook 'window-configuration-change-hook (lambda (frame) (window--adjust-process-windows)))
+#+end_src
+
+* Footnotes
+
+[fn:1] https://www.emacswiki.org/emacs/AnsiTermHints#h5o-8
+[fn:2]  https://gnu.emacs.bug.narkive.com/nNqAqMND/bug-43126-26-1-ansi-term-not-resized-after-x-window-resize

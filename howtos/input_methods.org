@@ -1,0 +1,4 @@
+#+STARTUP: indent
+
+* How to build an input method
+I built one. See here: [[https://github.com/mokrates/quail-classic-german][quail classic german]]

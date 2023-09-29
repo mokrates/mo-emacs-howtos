@@ -1,0 +1,77 @@
+#+STARTUP: indent
+
+* mo-emacs-config
+Ok, so this is my emacs config wiki
+
+** Keybindings/Prefix keys
+I use a us keyboard layout, so ~C-=~ is nicely reachable and a
+suitable prefix key.
+
+On a terminal using putty, sadly, ~C-=~ doesn't work, so I use ~<f12>~
+instead. ~<f5>~ is free, too. ~<f9>~ I use for "compiling" or similar
+stuff. (that was the binding in turbo-c and still seems to be used by
+some IDEs).
+
+*** Some of the bindings
+#+begin_src elisp
+  (global-set-key (kbd "C-= d") 'find-name-dired)
+  (global-set-key (kbd "C-= l") 'find-lisp-find-dired)
+  (global-set-key (kbd "C-= g") 'find-grep-dired)  # or find-grep.
+#+end_src
+
+** recent-files
+#+begin_src elisp
+  # ~/.emacs 
+
+  # recent files
+  (recentf-mode)
+  (global-set-key (kbd "C-= f") 'recentf-open-files)
+#+end_src
+	
+** emacs server
+start a server if there isn't already one running:
+#+begin_src elisp
+  	# ~/.emacs
+	
+    (require 'server)
+	(unless (and (fboundp #'server-running-p) (server-running-p))
+		(server-start))
+#+end_src
+
+** my multiple cursors shortcuts
+I think MCs are cool but I don't use them much. I neither pretend
+these are the best bindings nor do I claim completeness.
+
+If you're in a terminal check what key is sent by the key
+combination. I think it was ~C-^~ instead of ~C-"~. Adjust
+accordingly.
+
+#+begin_src elisp
+  	# ~/.emacs
+	
+    ;; multiple cursors
+    (global-set-key (kbd "C-\" a") 'mc/mark-all-like-this-dwim)
+    (global-set-key (kbd "C-\" l") 'mc/mark-next-lines)
+    (global-set-key (kbd "C-\" m") 'mc/mark-next-like-this)
+    (global-set-key (kbd "C-\" s") 'mc/mark-next-like-this-symbol)
+    (global-set-key (kbd "C-\" w") 'mc/mark-next-like-this-word)
+    (global-set-key (kbd "C-\" r") 'mc/mark-all-in-region)
+    (global-set-key (kbd "C-\" R") 'mc/mark-all-in-region-regexp)
+#+end_src
+
+#+INCLUDE: "ansi-term.org" :minlevel 2
+
+** TODO flymake
+- json
+- toml
+- python
+
+** TODO ide stuff
+*** TODO python
+
+** TODO ement.el (matrix client)
+
+
+* HOWTOs
+#+INCLUDE: "howtos/fonts.org"
+#+INCLUDE: "howtos/input_methods.org"
