@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-09-30 Sa 04:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>mos emacs howtos</title>
+<meta name="author" content="mokrates" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">mos emacs howtos</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf6e9e20">1. mo-emacs-config</a>
+<ul>
+<li><a href="#org50d58f1">1.1. Keybindings/Prefix keys</a>
+<ul>
+<li><a href="#org315e8d1">1.1.1. Some of the bindings</a></li>
+</ul>
+</li>
+<li><a href="#org5200fd1">1.2. recent-files</a></li>
+<li><a href="#org08349f1">1.3. emacs server</a></li>
+<li><a href="#org7f1e43a">1.4. my multiple cursors shortcuts</a></li>
+<li><a href="#org9885fab">1.5. Ansi-Term</a>
+<ul>
+<li><a href="#orga6c1d15">1.5.1. pasting</a></li>
+<li><a href="#orgb4ed615">1.5.2. tmacs</a></li>
+<li><a href="#orgf4afb93">1.5.3. emacsclient</a></li>
+<li><a href="#orgd9492f9">1.5.4. troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="#orgf43dd4b">1.6. flymake</a>
+<ul>
+<li><a href="#orgb25a302">1.6.1. json (new version)</a></li>
+<li><a href="#orgf258ed0">1.6.2. <span class="todo TODO">TODO</span> toml</a></li>
+<li><a href="#org9a47135">1.6.3. <span class="todo TODO">TODO</span> yaml</a></li>
+<li><a href="#orgc8d468e">1.6.4. python</a></li>
+</ul>
+</li>
+<li><a href="#org20197ae">1.7. ide stuff, languages</a>
+<ul>
+<li><a href="#orga4adb27">1.7.1. python</a></li>
+<li><a href="#org9841996">1.7.2. Golang</a></li>
+</ul>
+</li>
+<li><a href="#org0d37ac9">1.8. <span class="todo TODO">TODO</span> ement.el (matrix client)</a></li>
+</ul>
+</li>
+<li><a href="#org48af769">2. HOWTOs</a>
+<ul>
+<li><a href="#orge4f7122">2.1. Fonts</a>
+<ul>
+<li><a href="#org30dff68">2.1.1. how to let emacs find a font for you</a></li>
+<li><a href="#org9be2ed6">2.1.2. troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="#orgc0729e6">2.2. How to build an input method</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf6e9e20" class="outline-2">
+<h2 id="orgf6e9e20"><span class="section-number-2">1.</span> mo-emacs-config</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Ok, so this is my emacs config wiki
+</p>
+</div>
+
+<div id="outline-container-org50d58f1" class="outline-3">
+<h3 id="org50d58f1"><span class="section-number-3">1.1.</span> Keybindings/Prefix keys</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+I use a us keyboard layout, so <code>C-=</code> is nicely reachable and a
+suitable prefix key.
+</p>
+
+<p>
+On a terminal using putty, sadly, <code>C-=</code> doesn't work, so I use <code>&lt;f12&gt;</code>
+instead. <code>&lt;f5&gt;</code> is free, too. <code>&lt;f9&gt;</code> I use for "compiling" or similar
+stuff. (that was the binding in turbo-c and still seems to be used by
+some IDEs).
+</p>
+</div>
+
+<div id="outline-container-org315e8d1" class="outline-4">
+<h4 id="org315e8d1"><span class="section-number-4">1.1.1.</span> Some of the bindings</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<div class="org-src-container">
+<pre class="src src-elisp">(global-set-key (kbd "C-= d") 'find-name-dired)
+(global-set-key (kbd "C-= l") 'find-lisp-find-dired)
+(global-set-key (kbd "C-= g") 'find-grep-dired)  # or find-grep.
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5200fd1" class="outline-3">
+<h3 id="org5200fd1"><span class="section-number-3">1.2.</span> recent-files</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-elisp">;; recent files
+(recentf-mode)
+(global-set-key (kbd "C-= f") 'recentf-open-files)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org08349f1" class="outline-3">
+<h3 id="org08349f1"><span class="section-number-3">1.3.</span> emacs server</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+start a server if there isn't already one running:
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(require 'server)
+    (unless (and (fboundp #'server-running-p) (server-running-p))
+	    (server-start))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7f1e43a" class="outline-3">
+<h3 id="org7f1e43a"><span class="section-number-3">1.4.</span> my multiple cursors shortcuts</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+I think MCs are cool but I don't use them much. I neither pretend
+these are the best bindings nor do I claim completeness.
+</p>
+
+<p>
+If you're in a terminal check what key is sent by the key
+combination. I think it was <code>C-^</code> instead of <code>C-"</code>. Adjust
+accordingly.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; multiple cursors
+(global-set-key (kbd "C-\" a") 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C-\" l") 'mc/mark-next-lines)
+(global-set-key (kbd "C-\" m") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-\" s") 'mc/mark-next-like-this-symbol)
+(global-set-key (kbd "C-\" w") 'mc/mark-next-like-this-word)
+(global-set-key (kbd "C-\" r") 'mc/mark-all-in-region)
+(global-set-key (kbd "C-\" R") 'mc/mark-all-in-region-regexp)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9885fab" class="outline-3">
+<h3 id="org9885fab"><span class="section-number-3">1.5.</span> Ansi-Term</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orga6c1d15" class="outline-4">
+<h4 id="orga6c1d15"><span class="section-number-4">1.5.1.</span> pasting</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+There is a function called <code>term-paste</code>, but it is bound to <code>S-insert</code>
+by default. Who wants that? Use
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(require 'term)
+(define-key term-raw-map (kbd "C-c y") 'term-paste)
+(define-key term-raw-map (kbd "C-c C-y") 'term-paste)
+</pre>
+</div>
+
+<p>
+to rebind it to <code>C-c C-y</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb4ed615" class="outline-4">
+<h4 id="orgb4ed615"><span class="section-number-4">1.5.2.</span> tmacs</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+To conveniently open files from terminal even on remote machines, I
+use <a href="https://github.com/mokrates/tmacs">tmacswrap</a>
+</p>
+
+<p>
+You can define a function to quickly open a tmacs-term with
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(defun tmacs () (interactive) (ansi-term "/path/to/tmacswrap"))
+</pre>
+</div>
+
+<p>
+and then open it with <code>M-x tmacs</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf4afb93" class="outline-4">
+<h4 id="orgf4afb93"><span class="section-number-4">1.5.3.</span> emacsclient</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+Add to your <code>~/.bashrc</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">if [ -n "$INSIDE_EMACS" ]; then
+    export VISUAL=emacsclient   # use tmacs here, if you want
+    export EDITOR=$VISUAL
+fi  
+</pre>
+</div>
+
+<p>
+Don't use <code>emacsclient -n</code> because that would confuse programs like
+<code>git</code> when you edit your commit messages with this.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd9492f9" class="outline-4">
+<h4 id="orgd9492f9"><span class="section-number-4">1.5.4.</span> troubleshooting</h4>
+<div class="outline-text-4" id="text-1-5-4">
+</div>
+<ol class="org-ol">
+<li><a id="org5c84af3"></a>slow scrolling (emacs 26.1 has this problem)<br />
+<div class="outline-text-5" id="text-1-5-4-1">
+<p>
+In older emacs versions ansi-term was allegedly very slow clearing the
+screen. In version 26.1 the problem seems to be fixed, but still
+triggered in a different way: Scrolling fast, if the terminal buffer
+is already full. I solved this problem by using this<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; Terminal buffer configuration.
+(add-hook 'term-mode-hook 'my-term-mode-hook)
+(defun my-term-mode-hook ()
+  ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20611
+  (setq bidi-paragraph-direction 'left-to-right))  
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org209c99a"></a>terminal resizing (emacs 26.1 has this problem)<br />
+<div class="outline-text-5" id="text-1-5-4-2">
+<p>
+Resizing the terminal in which emacs runs doesn't inform inferior
+terminals that they should be resized, too. Use this<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(add-hook 'window-configuration-change-hook (lambda (frame) (window--adjust-process-windows)))
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgf43dd4b" class="outline-3">
+<h3 id="orgf43dd4b"><span class="section-number-3">1.6.</span> flymake</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-orgb25a302" class="outline-4">
+<h4 id="orgb25a302"><span class="section-number-4">1.6.1.</span> json (new version)</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+see: <a href="https://github.com/mokrates/json-simple-flymake">https://github.com/mokrates/json-simple-flymake</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgf258ed0" class="outline-4">
+<h4 id="orgf258ed0"><span class="section-number-4">1.6.2.</span> <span class="todo TODO">TODO</span> toml</h4>
+</div>
+<div id="outline-container-org9a47135" class="outline-4">
+<h4 id="org9a47135"><span class="section-number-4">1.6.3.</span> <span class="todo TODO">TODO</span> yaml</h4>
+</div>
+<div id="outline-container-orgc8d468e" class="outline-4">
+<h4 id="orgc8d468e"><span class="section-number-4">1.6.4.</span> python</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<p>
+see <a href="https://github.com/mokrates/flymaker">https://github.com/mokrates/flymaker</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org20197ae" class="outline-3">
+<h3 id="org20197ae"><span class="section-number-3">1.7.</span> ide stuff, languages</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+For flymaker, see <a href="#orgf43dd4b">1.6</a>
+</p>
+</div>
+<div id="outline-container-orga4adb27" class="outline-4">
+<h4 id="orga4adb27"><span class="section-number-4">1.7.1.</span> python</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<div class="org-src-container">
+<pre class="src src-elisp">;;;;;;;; python
+(require 'auto-complete)
+(require 'jedi)
+;; these seem to be neccessary because of GUI/CUI, idk.
+(define-key jedi-mode-map (kbd "C-c &lt;tab&gt;") 'jedi:complete)
+(define-key jedi-mode-map (kbd "C-c TAB") 'jedi:complete)
+(add-hook 'python-mode-hook 'jedi:setup)
+
+;; don't show this when idle. Don't do anything if I don't ask you!
+;; M-" to show info. (how it is shown: defined in customize)
+;; this is a monkey patch. may break with a new emacs version (currently working: 28.2)
+(defun jedi:get-in-function-call-when-idle () ())
+(define-key jedi-mode-map (kbd "M-\"") 'jedi:get-in-function-call)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9841996" class="outline-4">
+<h4 id="org9841996"><span class="section-number-4">1.7.2.</span> Golang</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<div class="org-src-container">
+<pre class="src src-elisp">;; golang
+(add-hook 'go-mode-hook #'eglot-ensure)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0d37ac9" class="outline-3">
+<h3 id="org0d37ac9"><span class="section-number-3">1.8.</span> <span class="todo TODO">TODO</span> ement.el (matrix client)</h3>
+</div>
+</div>
+
+
+<div id="outline-container-org48af769" class="outline-2">
+<h2 id="org48af769"><span class="section-number-2">2.</span> HOWTOs</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+
+<div id="outline-container-orge4f7122" class="outline-3">
+<h3 id="orge4f7122"><span class="section-number-3">2.1.</span> Fonts</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org30dff68" class="outline-4">
+<h4 id="org30dff68"><span class="section-number-4">2.1.1.</span> how to let emacs find a font for you</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+<code>customize-face</code> expects from you that you know the name and all
+parameters of a font. When I wasn't using GTK I found this hard. I
+found this way:
+</p>
+
+<p>
+Use <code>describe-font</code> which give you an auto-complete in the minibuffer
+which let's you look for and complete your font name. Kill the
+complete font name.
+</p>
+
+<p>
+Use <code>set-face-font</code> to set the font for the face you want to change.
+</p>
+
+<p>
+After this, use <code>customize-font</code> to open a customize buffer which is
+prefilled with the font you set with <code>set-face-font</code> and allows you to
+save to your <code>~/.emacs</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9be2ed6" class="outline-4">
+<h4 id="org9be2ed6"><span class="section-number-4">2.1.2.</span> troubleshooting</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Sometimes emacs loses the fonts you define. That seems to happen with
+incompatible themes which redefine them. deinstall those themes and redefine your fonts.
+</p>
+
+<p>
+Sometimes there seems to be a face lookup which results in a hangup
+and the message that the face "undefined" can't be found. This usually
+can't be fixed with a restart. This, too, was caused by a faulty
+theme. Grep your <code>~/.emacs</code> for <code>undefined</code>, remove that particular
+piece of configuration, remove the fauly theme and restart your emacs.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc0729e6" class="outline-3">
+<h3 id="orgc0729e6"><span class="section-number-3">2.2.</span> How to build an input method</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+I built one. See here: <a href="https://github.com/mokrates/quail-classic-german">quail classic german</a>
+</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://www.emacswiki.org/emacs/AnsiTermHints#h5o-8">https://www.emacswiki.org/emacs/AnsiTermHints#h5o-8</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://gnu.emacs.bug.narkive.com/nNqAqMND/bug-43126-26-1-ansi-term-not-resized-after-x-window-resize">https://gnu.emacs.bug.narkive.com/nNqAqMND/bug-43126-26-1-ansi-term-not-resized-after-x-window-resize</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: mokrates</p>
+<p class="date">Created: 2023-09-30 Sa 04:09</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
