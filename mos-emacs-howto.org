@@ -90,6 +90,7 @@ For flymaker, see [[flymake]]
   (add-hook 'go-mode-hook #'eglot-ensure)
 #+end_src
 
+** TODO show git branch in modeline
 
 ** TODO ement.el (matrix client)
 
