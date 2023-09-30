@@ -21,9 +21,7 @@ some IDEs).
 
 ** recent-files
 #+begin_src elisp
-  # ~/.emacs 
-
-  # recent files
+  ;; recent files
   (recentf-mode)
   (global-set-key (kbd "C-= f") 'recentf-open-files)
 #+end_src
@@ -31,8 +29,6 @@ some IDEs).
 ** emacs server
 start a server if there isn't already one running:
 #+begin_src elisp
-  	# ~/.emacs
-	
     (require 'server)
 	(unless (and (fboundp #'server-running-p) (server-running-p))
 		(server-start))
@@ -47,8 +43,6 @@ combination. I think it was ~C-^~ instead of ~C-"~. Adjust
 accordingly.
 
 #+begin_src elisp
-  	# ~/.emacs
-	
     ;; multiple cursors
     (global-set-key (kbd "C-\" a") 'mc/mark-all-like-this-dwim)
     (global-set-key (kbd "C-\" l") 'mc/mark-next-lines)
@@ -61,13 +55,39 @@ accordingly.
 
 #+INCLUDE: "ansi-term.org" :minlevel 2
 
-** TODO flymake
-- json
-- toml
-- python
+** flymake
+*** json (new version)
+see: https://github.com/mokrates/json-simple-flymake
+*** TODO toml
+*** TODO yaml
+*** python
+see https://github.com/mokrates/flymaker
 
-** TODO ide stuff
-*** TODO python
+** ide stuff, languages
+For flymaker, see [[flymake]]
+*** python
+#+begin_src elisp
+  ;;;;;;;; python
+  (require 'auto-complete)
+  (require 'jedi)
+  ;; these seem to be neccessary because of GUI/CUI, idk.
+  (define-key jedi-mode-map (kbd "C-c <tab>") 'jedi:complete)
+  (define-key jedi-mode-map (kbd "C-c TAB") 'jedi:complete)
+  (add-hook 'python-mode-hook 'jedi:setup)
+
+  ;; don't show this when idle. Don't do anything if I don't ask you!
+  ;; M-" to show info. (how it is shown: defined in customize)
+  ;; this is a monkey patch. may break with a new emacs version (currently working: 28.2)
+  (defun jedi:get-in-function-call-when-idle () ())
+  (define-key jedi-mode-map (kbd "M-\"") 'jedi:get-in-function-call)
+#+end_src
+
+*** Golang
+#+begin_src elisp
+  ;; golang
+  (add-hook 'go-mode-hook #'eglot-ensure)
+#+end_src
+
 
 ** TODO ement.el (matrix client)
 

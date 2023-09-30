@@ -8,7 +8,6 @@ There is a function called ~term-paste~, but it is bound to ~S-insert~
 by default. Who wants that? Use
 
 #+begin_src elisp
-  # ~/.emacs
   (require 'term)
   (define-key term-raw-map (kbd "C-c y") 'term-paste)
   (define-key term-raw-map (kbd "C-c C-y") 'term-paste)
@@ -23,7 +22,6 @@ use [[https://github.com/mokrates/tmacs][tmacswrap]]
 You can define a function to quickly open a tmacs-term with
 
 #+begin_src elisp
-  # ~/.emacs
   (defun tmacs () (interactive) (ansi-term "/path/to/tmacswrap"))
 #+end_src
 	
