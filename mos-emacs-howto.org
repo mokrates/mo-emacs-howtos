@@ -19,6 +19,9 @@ some IDEs).
   (global-set-key (kbd "C-= d") 'find-name-dired)
   (global-set-key (kbd "C-= l") 'find-lisp-find-dired)
   (global-set-key (kbd "C-= g") 'find-grep-dired)  # or find-grep.
+
+  ;; to complete filenames everywhere
+  (global-set-key (kbd "C-= TAB") 'term-dynamic-complete-filename)
 #+end_src
 
 ** recent-files
@@ -31,9 +34,9 @@ some IDEs).
 ** emacs server
 start a server if there isn't already one running:
 #+begin_src elisp
-    (require 'server)
-	(unless (and (fboundp #'server-running-p) (server-running-p))
-		(server-start))
+  (require 'server)
+  (unless (and (fboundp #'server-running-p) (server-running-p))
+    (server-start))
 #+end_src
 
 ** my multiple cursors shortcuts

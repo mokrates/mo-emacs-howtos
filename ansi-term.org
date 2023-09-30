@@ -68,4 +68,4 @@ terminals that they should be resized, too. Use this[fn:2]:
 * Footnotes
 
 [fn:1] https://www.emacswiki.org/emacs/AnsiTermHints#h5o-8
-[fn:2]  https://gnu.emacs.bug.narkive.com/nNqAqMND/bug-43126-26-1-ansi-term-not-resized-after-x-window-resize
+[fn:2] https://gnu.emacs.bug.narkive.com/nNqAqMND/bug-43126-26-1-ansi-term-not-resized-after-x-window-resize
