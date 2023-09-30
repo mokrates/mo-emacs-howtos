@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-09-30 Sa 04:09 -->
+<!-- 2023-10-01 So 01:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>mos emacs howtos</title>
@@ -201,66 +201,67 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf6e9e20">1. mo-emacs-config</a>
+<li><a href="#orgdf2ffe8">1. mo-emacs-config</a>
 <ul>
-<li><a href="#org50d58f1">1.1. Keybindings/Prefix keys</a>
+<li><a href="#orgdff1145">1.1. Keybindings/Prefix keys</a>
 <ul>
-<li><a href="#org315e8d1">1.1.1. Some of the bindings</a></li>
+<li><a href="#org1ebcf16">1.1.1. Some of the bindings</a></li>
 </ul>
 </li>
-<li><a href="#org5200fd1">1.2. recent-files</a></li>
-<li><a href="#org08349f1">1.3. emacs server</a></li>
-<li><a href="#org7f1e43a">1.4. my multiple cursors shortcuts</a></li>
-<li><a href="#org9885fab">1.5. Ansi-Term</a>
+<li><a href="#org48c0575">1.2. recent-files</a></li>
+<li><a href="#orgdb910eb">1.3. emacs server</a></li>
+<li><a href="#org4d260b6">1.4. my multiple cursors shortcuts</a></li>
+<li><a href="#org0c2d7a3">1.5. Ansi-Term</a>
 <ul>
-<li><a href="#orga6c1d15">1.5.1. pasting</a></li>
-<li><a href="#orgb4ed615">1.5.2. tmacs</a></li>
-<li><a href="#orgf4afb93">1.5.3. emacsclient</a></li>
-<li><a href="#orgd9492f9">1.5.4. troubleshooting</a></li>
+<li><a href="#orgbfb41cb">1.5.1. pasting</a></li>
+<li><a href="#org2f7f3c8">1.5.2. tmacs</a></li>
+<li><a href="#org63f87cc">1.5.3. emacsclient</a></li>
+<li><a href="#orgd8995c8">1.5.4. troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#orgf43dd4b">1.6. flymake</a>
+<li><a href="#orgbaa098b">1.6. flymake</a>
 <ul>
-<li><a href="#orgb25a302">1.6.1. json (new version)</a></li>
-<li><a href="#orgf258ed0">1.6.2. <span class="todo TODO">TODO</span> toml</a></li>
-<li><a href="#org9a47135">1.6.3. <span class="todo TODO">TODO</span> yaml</a></li>
-<li><a href="#orgc8d468e">1.6.4. python</a></li>
+<li><a href="#orge3a2c57">1.6.1. json (new version)</a></li>
+<li><a href="#org843f6ef">1.6.2. <span class="todo TODO">TODO</span> toml</a></li>
+<li><a href="#org0510e58">1.6.3. <span class="todo TODO">TODO</span> yaml</a></li>
+<li><a href="#org094a0f3">1.6.4. python</a></li>
 </ul>
 </li>
-<li><a href="#org20197ae">1.7. ide stuff, languages</a>
+<li><a href="#orgff4c6a0">1.7. ide stuff, languages</a>
 <ul>
-<li><a href="#orga4adb27">1.7.1. python</a></li>
-<li><a href="#org9841996">1.7.2. Golang</a></li>
+<li><a href="#orgc3d3624">1.7.1. python</a></li>
+<li><a href="#org10606de">1.7.2. Golang</a></li>
 </ul>
 </li>
-<li><a href="#org0d37ac9">1.8. <span class="todo TODO">TODO</span> ement.el (matrix client)</a></li>
+<li><a href="#orge9d9ed5">1.8. <span class="todo TODO">TODO</span> show git branch in modeline</a></li>
+<li><a href="#org06474c1">1.9. <span class="todo TODO">TODO</span> ement.el (matrix client)</a></li>
 </ul>
 </li>
-<li><a href="#org48af769">2. HOWTOs</a>
+<li><a href="#org1c0fe67">2. HOWTOs</a>
 <ul>
-<li><a href="#orge4f7122">2.1. Fonts</a>
+<li><a href="#org70523a8">2.1. Fonts</a>
 <ul>
-<li><a href="#org30dff68">2.1.1. how to let emacs find a font for you</a></li>
-<li><a href="#org9be2ed6">2.1.2. troubleshooting</a></li>
+<li><a href="#orgbc565d3">2.1.1. how to let emacs find a font for you</a></li>
+<li><a href="#orge7e8d54">2.1.2. troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#orgc0729e6">2.2. How to build an input method</a></li>
+<li><a href="#orge8d9df2">2.2. How to build an input method</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf6e9e20" class="outline-2">
-<h2 id="orgf6e9e20"><span class="section-number-2">1.</span> mo-emacs-config</h2>
+<div id="outline-container-orgdf2ffe8" class="outline-2">
+<h2 id="orgdf2ffe8"><span class="section-number-2">1.</span> mo-emacs-config</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Ok, so this is my emacs config wiki
 </p>
 </div>
 
-<div id="outline-container-org50d58f1" class="outline-3">
-<h3 id="org50d58f1"><span class="section-number-3">1.1.</span> Keybindings/Prefix keys</h3>
+<div id="outline-container-orgdff1145" class="outline-3">
+<h3 id="orgdff1145"><span class="section-number-3">1.1.</span> Keybindings/Prefix keys</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 I use a us keyboard layout, so <code>C-=</code> is nicely reachable and a
@@ -275,21 +276,24 @@ some IDEs).
 </p>
 </div>
 
-<div id="outline-container-org315e8d1" class="outline-4">
-<h4 id="org315e8d1"><span class="section-number-4">1.1.1.</span> Some of the bindings</h4>
+<div id="outline-container-org1ebcf16" class="outline-4">
+<h4 id="org1ebcf16"><span class="section-number-4">1.1.1.</span> Some of the bindings</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <div class="org-src-container">
 <pre class="src src-elisp">(global-set-key (kbd "C-= d") 'find-name-dired)
 (global-set-key (kbd "C-= l") 'find-lisp-find-dired)
 (global-set-key (kbd "C-= g") 'find-grep-dired)  # or find-grep.
+
+;; to complete filenames everywhere
+(global-set-key (kbd "C-= TAB") 'term-dynamic-complete-filename)
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5200fd1" class="outline-3">
-<h3 id="org5200fd1"><span class="section-number-3">1.2.</span> recent-files</h3>
+<div id="outline-container-org48c0575" class="outline-3">
+<h3 id="org48c0575"><span class="section-number-3">1.2.</span> recent-files</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-elisp">;; recent files
@@ -300,23 +304,23 @@ some IDEs).
 </div>
 </div>
 
-<div id="outline-container-org08349f1" class="outline-3">
-<h3 id="org08349f1"><span class="section-number-3">1.3.</span> emacs server</h3>
+<div id="outline-container-orgdb910eb" class="outline-3">
+<h3 id="orgdb910eb"><span class="section-number-3">1.3.</span> emacs server</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 start a server if there isn't already one running:
 </p>
 <div class="org-src-container">
 <pre class="src src-elisp">(require 'server)
-    (unless (and (fboundp #'server-running-p) (server-running-p))
-	    (server-start))
+(unless (and (fboundp #'server-running-p) (server-running-p))
+  (server-start))
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org7f1e43a" class="outline-3">
-<h3 id="org7f1e43a"><span class="section-number-3">1.4.</span> my multiple cursors shortcuts</h3>
+<div id="outline-container-org4d260b6" class="outline-3">
+<h3 id="org4d260b6"><span class="section-number-3">1.4.</span> my multiple cursors shortcuts</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 I think MCs are cool but I don't use them much. I neither pretend
@@ -343,12 +347,12 @@ accordingly.
 </div>
 </div>
 
-<div id="outline-container-org9885fab" class="outline-3">
-<h3 id="org9885fab"><span class="section-number-3">1.5.</span> Ansi-Term</h3>
+<div id="outline-container-org0c2d7a3" class="outline-3">
+<h3 id="org0c2d7a3"><span class="section-number-3">1.5.</span> Ansi-Term</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orga6c1d15" class="outline-4">
-<h4 id="orga6c1d15"><span class="section-number-4">1.5.1.</span> pasting</h4>
+<div id="outline-container-orgbfb41cb" class="outline-4">
+<h4 id="orgbfb41cb"><span class="section-number-4">1.5.1.</span> pasting</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 There is a function called <code>term-paste</code>, but it is bound to <code>S-insert</code>
@@ -368,8 +372,8 @@ to rebind it to <code>C-c C-y</code>
 </div>
 </div>
 
-<div id="outline-container-orgb4ed615" class="outline-4">
-<h4 id="orgb4ed615"><span class="section-number-4">1.5.2.</span> tmacs</h4>
+<div id="outline-container-org2f7f3c8" class="outline-4">
+<h4 id="org2f7f3c8"><span class="section-number-4">1.5.2.</span> tmacs</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
 To conveniently open files from terminal even on remote machines, I
@@ -391,8 +395,8 @@ and then open it with <code>M-x tmacs</code>.
 </div>
 </div>
 
-<div id="outline-container-orgf4afb93" class="outline-4">
-<h4 id="orgf4afb93"><span class="section-number-4">1.5.3.</span> emacsclient</h4>
+<div id="outline-container-org63f87cc" class="outline-4">
+<h4 id="org63f87cc"><span class="section-number-4">1.5.3.</span> emacsclient</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 Add to your <code>~/.bashrc</code>:
@@ -412,12 +416,12 @@ Don't use <code>emacsclient -n</code> because that would confuse programs like
 </div>
 </div>
 
-<div id="outline-container-orgd9492f9" class="outline-4">
-<h4 id="orgd9492f9"><span class="section-number-4">1.5.4.</span> troubleshooting</h4>
+<div id="outline-container-orgd8995c8" class="outline-4">
+<h4 id="orgd8995c8"><span class="section-number-4">1.5.4.</span> troubleshooting</h4>
 <div class="outline-text-4" id="text-1-5-4">
 </div>
 <ol class="org-ol">
-<li><a id="org5c84af3"></a>slow scrolling (emacs 26.1 has this problem)<br />
+<li><a id="org36eb9ca"></a>slow scrolling (emacs 26.1 has this problem)<br />
 <div class="outline-text-5" id="text-1-5-4-1">
 <p>
 In older emacs versions ansi-term was allegedly very slow clearing the
@@ -437,7 +441,7 @@ is already full. I solved this problem by using this<sup><a id="fnr.1" class="fo
 </div>
 </li>
 
-<li><a id="org209c99a"></a>terminal resizing (emacs 26.1 has this problem)<br />
+<li><a id="org1b33947"></a>terminal resizing (emacs 26.1 has this problem)<br />
 <div class="outline-text-5" id="text-1-5-4-2">
 <p>
 Resizing the terminal in which emacs runs doesn't inform inferior
@@ -454,26 +458,26 @@ terminals that they should be resized, too. Use this<sup><a id="fnr.2" class="fo
 </div>
 </div>
 
-<div id="outline-container-orgf43dd4b" class="outline-3">
-<h3 id="orgf43dd4b"><span class="section-number-3">1.6.</span> flymake</h3>
+<div id="outline-container-orgbaa098b" class="outline-3">
+<h3 id="orgbaa098b"><span class="section-number-3">1.6.</span> flymake</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-orgb25a302" class="outline-4">
-<h4 id="orgb25a302"><span class="section-number-4">1.6.1.</span> json (new version)</h4>
+<div id="outline-container-orge3a2c57" class="outline-4">
+<h4 id="orge3a2c57"><span class="section-number-4">1.6.1.</span> json (new version)</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 see: <a href="https://github.com/mokrates/json-simple-flymake">https://github.com/mokrates/json-simple-flymake</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgf258ed0" class="outline-4">
-<h4 id="orgf258ed0"><span class="section-number-4">1.6.2.</span> <span class="todo TODO">TODO</span> toml</h4>
+<div id="outline-container-org843f6ef" class="outline-4">
+<h4 id="org843f6ef"><span class="section-number-4">1.6.2.</span> <span class="todo TODO">TODO</span> toml</h4>
 </div>
-<div id="outline-container-org9a47135" class="outline-4">
-<h4 id="org9a47135"><span class="section-number-4">1.6.3.</span> <span class="todo TODO">TODO</span> yaml</h4>
+<div id="outline-container-org0510e58" class="outline-4">
+<h4 id="org0510e58"><span class="section-number-4">1.6.3.</span> <span class="todo TODO">TODO</span> yaml</h4>
 </div>
-<div id="outline-container-orgc8d468e" class="outline-4">
-<h4 id="orgc8d468e"><span class="section-number-4">1.6.4.</span> python</h4>
+<div id="outline-container-org094a0f3" class="outline-4">
+<h4 id="org094a0f3"><span class="section-number-4">1.6.4.</span> python</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <p>
 see <a href="https://github.com/mokrates/flymaker">https://github.com/mokrates/flymaker</a>
@@ -482,15 +486,15 @@ see <a href="https://github.com/mokrates/flymaker">https://github.com/mokrates/f
 </div>
 </div>
 
-<div id="outline-container-org20197ae" class="outline-3">
-<h3 id="org20197ae"><span class="section-number-3">1.7.</span> ide stuff, languages</h3>
+<div id="outline-container-orgff4c6a0" class="outline-3">
+<h3 id="orgff4c6a0"><span class="section-number-3">1.7.</span> ide stuff, languages</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
-For flymaker, see <a href="#orgf43dd4b">1.6</a>
+For flymaker, see <a href="#orgbaa098b">1.6</a>
 </p>
 </div>
-<div id="outline-container-orga4adb27" class="outline-4">
-<h4 id="orga4adb27"><span class="section-number-4">1.7.1.</span> python</h4>
+<div id="outline-container-orgc3d3624" class="outline-4">
+<h4 id="orgc3d3624"><span class="section-number-4">1.7.1.</span> python</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <div class="org-src-container">
 <pre class="src src-elisp">;;;;;;;; python
@@ -511,8 +515,8 @@ For flymaker, see <a href="#orgf43dd4b">1.6</a>
 </div>
 </div>
 
-<div id="outline-container-org9841996" class="outline-4">
-<h4 id="org9841996"><span class="section-number-4">1.7.2.</span> Golang</h4>
+<div id="outline-container-org10606de" class="outline-4">
+<h4 id="org10606de"><span class="section-number-4">1.7.2.</span> Golang</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <div class="org-src-container">
 <pre class="src src-elisp">;; golang
@@ -523,24 +527,27 @@ For flymaker, see <a href="#orgf43dd4b">1.6</a>
 </div>
 </div>
 
+<div id="outline-container-orge9d9ed5" class="outline-3">
+<h3 id="orge9d9ed5"><span class="section-number-3">1.8.</span> <span class="todo TODO">TODO</span> show git branch in modeline</h3>
+</div>
 
-<div id="outline-container-org0d37ac9" class="outline-3">
-<h3 id="org0d37ac9"><span class="section-number-3">1.8.</span> <span class="todo TODO">TODO</span> ement.el (matrix client)</h3>
+<div id="outline-container-org06474c1" class="outline-3">
+<h3 id="org06474c1"><span class="section-number-3">1.9.</span> <span class="todo TODO">TODO</span> ement.el (matrix client)</h3>
 </div>
 </div>
 
 
-<div id="outline-container-org48af769" class="outline-2">
-<h2 id="org48af769"><span class="section-number-2">2.</span> HOWTOs</h2>
+<div id="outline-container-org1c0fe67" class="outline-2">
+<h2 id="org1c0fe67"><span class="section-number-2">2.</span> HOWTOs</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 
-<div id="outline-container-orge4f7122" class="outline-3">
-<h3 id="orge4f7122"><span class="section-number-3">2.1.</span> Fonts</h3>
+<div id="outline-container-org70523a8" class="outline-3">
+<h3 id="org70523a8"><span class="section-number-3">2.1.</span> Fonts</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org30dff68" class="outline-4">
-<h4 id="org30dff68"><span class="section-number-4">2.1.1.</span> how to let emacs find a font for you</h4>
+<div id="outline-container-orgbc565d3" class="outline-4">
+<h4 id="orgbc565d3"><span class="section-number-4">2.1.1.</span> how to let emacs find a font for you</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 <code>customize-face</code> expects from you that you know the name and all
@@ -566,8 +573,8 @@ save to your <code>~/.emacs</code>.
 </div>
 </div>
 
-<div id="outline-container-org9be2ed6" class="outline-4">
-<h4 id="org9be2ed6"><span class="section-number-4">2.1.2.</span> troubleshooting</h4>
+<div id="outline-container-orge7e8d54" class="outline-4">
+<h4 id="orge7e8d54"><span class="section-number-4">2.1.2.</span> troubleshooting</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 Sometimes emacs loses the fonts you define. That seems to happen with
@@ -585,8 +592,8 @@ piece of configuration, remove the fauly theme and restart your emacs.
 </div>
 </div>
 
-<div id="outline-container-orgc0729e6" class="outline-3">
-<h3 id="orgc0729e6"><span class="section-number-3">2.2.</span> How to build an input method</h3>
+<div id="outline-container-orge8d9df2" class="outline-3">
+<h3 id="orge8d9df2"><span class="section-number-3">2.2.</span> How to build an input method</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 I built one. See here: <a href="https://github.com/mokrates/quail-classic-german">quail classic german</a>
@@ -611,7 +618,7 @@ I built one. See here: <a href="https://github.com/mokrates/quail-classic-german
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: mokrates</p>
-<p class="date">Created: 2023-09-30 Sa 04:09</p>
+<p class="date">Created: 2023-10-01 So 01:08</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
