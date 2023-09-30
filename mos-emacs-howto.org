@@ -1,5 +1,6 @@
 #+STARTUP: indent
 #+author: mokrates
+#+title: mos emacs howtos
 
 * mo-emacs-config
 Ok, so this is my emacs config wiki
