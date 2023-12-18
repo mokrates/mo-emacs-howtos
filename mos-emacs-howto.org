@@ -60,8 +60,30 @@ accordingly.
 ** flymake
 *** json (new version)
 see: https://github.com/mokrates/json-simple-flymake
-*** TODO toml
-*** TODO yaml
+*** toml
+#+BEGIN_SRC elisp
+(load "~/.emacs.d/tomlcheck.el")
+(add-hook 'conf-toml-mode-hook 'flymake-tomlcheck-setup)
+(add-hook 'conf-toml-mode-hook 'flymake-mode)
+(add-hook 'conf-toml-mode-hook 'trailing-whitespace-mode)
+
+;; if you want to add this automatically to .conf.j2 files
+(add-to-list 'auto-mode-alist '("\\.conf\\.j2\\'" . conf-toml-mode))
+#+END_SRC
+
+**** =tomlcheck.el=
+#+include: "elisp/tomlcheck.el" src elisp
+
+*** yaml
+#+BEGIN_SRC elisp
+(load "~/.emacs.d/flymake-yamllint.el")
+(add-hook 'yaml-mode-hook 'flymake-yamllint-setup)
+(add-hook 'yaml-mode-hook 'flymake-mode)
+(add-hook 'yaml-mode-hook 'trailing-whitespace-mode)
+#+END_SRC
+
+https://github.com/shaohme/flymake-yamllint
+
 *** python
 see https://github.com/mokrates/flymaker
 
@@ -90,7 +112,8 @@ For flymaker, see [[flymake]]
   (add-hook 'go-mode-hook #'eglot-ensure)
 #+end_src
 
-** TODO show git branch in modeline
+** show git branch in modeline
+#+include: "elisp/term-git-mode.el" src elisp
 
 ** TODO ement.el (matrix client)
 
