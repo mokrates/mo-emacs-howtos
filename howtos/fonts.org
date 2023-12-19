@@ -2,6 +2,19 @@
 
 * Fonts
 
+** default font
+[[info:emacs::fonts]]
+
+From the emacs docs:
+#+BEGIN_QUOTE
+Add a line to your init file, modifying the variable
+`default-frame-alist' to specify the `font' parameter (*note Frame Parameters::), like this:
+
+(add-to-list 'default-frame-alist
+  '(font . "DejaVu Sans Mono-10"))
+#+END_QUOTE
+
+
 ** how to let emacs find a font for you
 
 ~customize-face~ expects from you that you know the name and all
