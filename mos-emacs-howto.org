@@ -125,6 +125,7 @@ For flymaker, see [[flymake]]
   (define-key jedi-mode-map (kbd "C-c <tab>") 'jedi:complete)
   (define-key jedi-mode-map (kbd "C-c TAB") 'jedi:complete)
   (add-hook 'python-mode-hook 'jedi:setup)
+  (add-hook 'python-mode-hook (lambda () (interactive) (setq header-line-format "C-c TAB:complete | M-\":describe function | C-c ?:python doc")))
 
   ;; don't show this when idle. Don't do anything if I don't ask you!
   ;; M-" to show info. (how it is shown: defined in customize)
