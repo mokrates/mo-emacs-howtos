@@ -5,6 +5,30 @@
 * mo-emacs-config
 Ok, so this is my emacs config wiki
 
+** keyboard layout
+Ok, you need a usable keyboard layout. This means, the caps lock key
+has to instead send a ctrl.
+
+Also I want the german and us layout switchable with win+space.
+
+*** debian
+~/etc/default/keyboard~
+#+BEGIN_SRC
+XKBMODEL="pc105"
+XKBLAYOUT="de,us"
+XKBVARIANT=""
+XKBOPTIONS="ctrl:nocaps,grp:win_space_toggle,grp_led:scroll"
+
+BACKSPACE="guess"
+#+END_SRC
+~grp_led:scroll~ makes a layout indicator out of the the scroll lock led.
+
+*** other distros
+see setxkbmap
+#+BEGIN_SRC
+setxkbmap -layout us,de -option win_space_toggle,grp_led:scroll -v
+#+END_SRC
+
 ** Keybindings/Prefix keys
 I use a us keyboard layout, so ~C-=~ is nicely reachable and a
 suitable prefix key.
