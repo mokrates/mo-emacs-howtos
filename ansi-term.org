@@ -22,7 +22,15 @@ use [[https://github.com/mokrates/tmacs][tmacswrap]]
 You can define a function to quickly open a tmacs-term with
 
 #+begin_src elisp
-  (defun tmacs () (interactive) (ansi-term "/path/to/tmacswrap"))
+  (defun tmacs--find-free-number ()
+    "use this function to create a reasonable buffer name"
+    (cl-do ((num 0 (+ 1 num)))
+        ((not (get-buffer (format "*tmacs<%s>*" num)))
+         num)))
+
+  (defun tmacs ()
+    (interactive)
+    (ansi-term "/bin/bash" (format "tmacs<%s>" (tmacs--find-free-number))))
 #+end_src
 	
 and then open it with ~M-x tmacs~.
