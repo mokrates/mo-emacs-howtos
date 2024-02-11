@@ -40,7 +40,15 @@ disable cursor blinking in your terminal configuration
 *** Linux terminal
 use this command[fn:1]:
 #+BEGIN_SRC bash
-echo -e '\033[?17;0;64c'
+  echo -e '\033[?17;0;64c'
+#+END_SRC
+
+You can put this in your ~~/.bashrc~
+#+BEGIN_SRC bash
+  if [[ $- == *i* ]]; then
+      # bash is interactive
+      echo -e '\033[?17;0;64c'
+  fi
 #+END_SRC
 
 ** Keybindings/Prefix keys
