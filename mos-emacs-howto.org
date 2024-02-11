@@ -13,7 +13,8 @@ Also I want the german and us layout switchable with win+space.
 
 *** debian
 ~/etc/default/keyboard~
-#+BEGIN_SRC
+
+#+BEGIN_SRC bash
 XKBMODEL="pc105"
 XKBLAYOUT="de,us"
 XKBVARIANT=""
@@ -21,12 +22,25 @@ XKBOPTIONS="ctrl:nocaps,grp:win_space_toggle,grp_led:scroll"
 
 BACKSPACE="guess"
 #+END_SRC
+
 ~grp_led:scroll~ makes a layout indicator out of the the scroll lock led.
 
 *** other distros
 see setxkbmap
-#+BEGIN_SRC
+#+BEGIN_SRC bash
 setxkbmap -layout us,de -option win_space_toggle,grp_led:scroll -v
+#+END_SRC
+
+** Cursor blinking
+*** GUI emacs
+just disable it via menu and save your configuration. Alternatively:
+`M-x cursor-blink-mode`.
+*** Emacs in graphical terminal emulator
+disable cursor blinking in your terminal configuration
+*** Linux terminal
+use this command[fn:1]:
+#+BEGIN_SRC bash
+echo -e '\033[?17;0;64c'
 #+END_SRC
 
 ** Keybindings/Prefix keys
@@ -42,7 +56,7 @@ some IDEs).
 #+begin_src elisp
   (global-set-key (kbd "C-= d") 'find-name-dired)
   (global-set-key (kbd "C-= l") 'find-lisp-find-dired)
-  (global-set-key (kbd "C-= g") 'find-grep-dired)  # or find-grep.
+  (global-set-key (kbd "C-= g") 'find-grep-dired)  ;;  or find-grep.
 
   ;; to complete filenames everywhere
   (global-set-key (kbd "C-= TAB") 'term-dynamic-complete-filename)
@@ -149,3 +163,7 @@ For flymaker, see [[flymake]]
 * HOWTOs
 #+INCLUDE: "howtos/fonts.org"
 #+INCLUDE: "howtos/input_methods.org"
+
+* Footnotes
+
+[fn:1] https://www.kernel.org/doc/html/latest/admin-guide/vga-softcursor.html 
