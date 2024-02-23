@@ -47,6 +47,46 @@ Add to your ~~/.bashrc~:
 Don't use ~emacsclient -n~ because that would confuse programs like
 ~git~ when you edit your commit messages with this.
 
+** Forbid TRAMP to ask for password
+It may be a problem if one mistypes on a password prompt in tramp,
+because emacs might lock up your account if there is a limit of
+unsuccessful logins.
+
+- tell ssh to not ask for password
+- override tramp function to ask for password and error out.
+
+#+BEGIN_SRC elisp
+;; ~/.emacs
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; tramp
+(setq tramp-ssh-controlmaster-options "-o PasswordAuthentication=no")
+
+;; don't ever ask for passwords!
+;; TODO: implement as advice
+(defun tramp-read-passwd (proc &optional prompt)
+  (message "Tramp tries to ask for password, inhibiting")
+  (error "Tramp tried to ask for password")) ;; just fail
+
+#+END_SRC
+
+To allow emacs to TRAMP somewhere, nonetheless, use a controlmaster
+connection
+
+#+BEGIN_EXAMPLE
+# ~/.ssh/config
+
+# use this, if you have a domain. Else something might not work when using shortnames 
+# CanonicalizeHostname yes
+# CanonicalDomains my.domain.com
+
+host *
+    ControlMaster auto
+    ControlPath ~/.ssh/control/%C
+    ControlPersist 15m
+#+END_EXAMPLE
+
+
 ** troubleshooting
 
 *** slow scrolling (emacs 26.1 has this problem)

@@ -31,26 +31,6 @@ see setxkbmap
 setxkbmap -layout us,de -option win_space_toggle,grp_led:scroll -v
 #+END_SRC
 
-** Cursor blinking
-*** GUI emacs
-just disable it via menu and save your configuration. Alternatively:
-`M-x cursor-blink-mode`.
-*** Emacs in graphical terminal emulator
-disable cursor blinking in your terminal configuration
-*** Linux terminal
-use this command[fn:1]:
-#+BEGIN_SRC bash
-  echo -e '\033[?17;0;64c'
-#+END_SRC
-
-You can put this in your ~~/.bashrc~
-#+BEGIN_SRC bash
-  if [[ $- == *i* ]]; then
-      # bash is interactive
-      echo -e '\033[?17;0;64c'
-  fi
-#+END_SRC
-
 ** Keybindings/Prefix keys
 I use a us keyboard layout, so ~C-=~ is nicely reachable and a
 suitable prefix key.
@@ -84,6 +64,23 @@ start a server if there isn't already one running:
   (unless (and (fboundp #'server-running-p) (server-running-p))
     (server-start))
 #+end_src
+
+*** Troubleshooting
+You normally should not need this but if ~emacsclient~ doesn't find
+the emacs server read this:
+
+the server creates a unix domain socket. you can find out where by
+~C-h v server-socket-dir~
+
+sadly ~emacsclient~ doesn't use a config file to look up the
+~server-socket-dir~, you can only specify it on the command line:
+
+#+BEGIN_SRC bash
+  emacsclient --socket-name=/<somedir>/server <file>
+#+END_SRC
+
+You can alias emacsclient with this socket name if it doesn't seem to
+change.
 
 ** my multiple cursors shortcuts
 I think MCs are cool but I don't use them much. I neither pretend
