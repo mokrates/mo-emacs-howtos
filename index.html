@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-02-11 So 17:42 -->
+<!-- 2024-02-23 Fr 21:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>mos emacs howtos</title>
@@ -201,81 +201,79 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org11f5fb9">1. mo-emacs-config</a>
+<li><a href="#org75116e5">1. mo-emacs-config</a>
 <ul>
-<li><a href="#orgc469aba">1.1. keyboard layout</a>
+<li><a href="#org6541682">1.1. keyboard layout</a>
 <ul>
-<li><a href="#org80bc045">1.1.1. debian</a></li>
-<li><a href="#orgb07ad6f">1.1.2. other distros</a></li>
+<li><a href="#orgd78abc9">1.1.1. debian</a></li>
+<li><a href="#orgb12800c">1.1.2. other distros</a></li>
 </ul>
 </li>
-<li><a href="#orgf5e391e">1.2. Cursor blinking</a>
+<li><a href="#org38647be">1.2. Keybindings/Prefix keys</a>
 <ul>
-<li><a href="#org10a17ac">1.2.1. GUI emacs</a></li>
-<li><a href="#org2c178c2">1.2.2. Emacs in graphical terminal emulator</a></li>
-<li><a href="#org26c3437">1.2.3. Linux terminal</a></li>
+<li><a href="#orgf9c40ce">1.2.1. Some of the bindings</a></li>
 </ul>
 </li>
-<li><a href="#org479c004">1.3. Keybindings/Prefix keys</a>
+<li><a href="#org6ca9829">1.3. recent-files</a></li>
+<li><a href="#orgccd2c87">1.4. emacs server</a>
 <ul>
-<li><a href="#org9426389">1.3.1. Some of the bindings</a></li>
+<li><a href="#orga52ebd2">1.4.1. Troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#org7c6ea28">1.4. recent-files</a></li>
-<li><a href="#org5102568">1.5. emacs server</a></li>
-<li><a href="#orga052f87">1.6. my multiple cursors shortcuts</a></li>
-<li><a href="#orgd0ac5e9">1.7. Ansi-Term</a>
+<li><a href="#org8357974">1.5. my multiple cursors shortcuts</a></li>
+<li><a href="#org1b4aff1">1.6. Ansi-Term</a>
 <ul>
-<li><a href="#orgd6d04ca">1.7.1. pasting</a></li>
-<li><a href="#orgf96bf2c">1.7.2. tmacs</a></li>
-<li><a href="#org1b4afe7">1.7.3. emacsclient</a></li>
-<li><a href="#orgfd83872">1.7.4. troubleshooting</a></li>
+<li><a href="#org5b54579">1.6.1. pasting</a></li>
+<li><a href="#orgc38dd67">1.6.2. tmacs</a></li>
+<li><a href="#orgedd18fb">1.6.3. emacsclient</a></li>
+<li><a href="#orgc75a9f0">1.6.4. Forbid TRAMP to ask for password</a></li>
+<li><a href="#org4351e51">1.6.5. troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#org7288219">1.8. flymake</a>
+<li><a href="#orga458fd8">1.7. flymake</a>
 <ul>
-<li><a href="#org8fc41dd">1.8.1. json (new version)</a></li>
-<li><a href="#orgce3d678">1.8.2. toml</a></li>
-<li><a href="#org00bbd3d">1.8.3. yaml</a></li>
-<li><a href="#org75929a3">1.8.4. python</a></li>
+<li><a href="#org3efd12e">1.7.1. json (new version)</a></li>
+<li><a href="#orga526e47">1.7.2. toml</a></li>
+<li><a href="#org8a7e647">1.7.3. yaml</a></li>
+<li><a href="#org6161483">1.7.4. python</a></li>
 </ul>
 </li>
-<li><a href="#org52362a1">1.9. ide stuff, languages</a>
+<li><a href="#org8ac61de">1.8. ide stuff, languages</a>
 <ul>
-<li><a href="#org348595a">1.9.1. python</a></li>
-<li><a href="#orgdd6d4d0">1.9.2. Golang</a></li>
+<li><a href="#org4d1f732">1.8.1. python</a></li>
+<li><a href="#orgf85b27f">1.8.2. Golang</a></li>
 </ul>
 </li>
-<li><a href="#org7c4f476">1.10. show git branch in modeline</a></li>
-<li><a href="#orge2c4ad1">1.11. <span class="todo TODO">TODO</span> ement.el (matrix client)</a></li>
+<li><a href="#orgd205933">1.9. show git branch in modeline</a></li>
+<li><a href="#orga786f18">1.10. <span class="todo TODO">TODO</span> ement.el (matrix client)</a></li>
 </ul>
 </li>
-<li><a href="#orgefb3b18">2. HOWTOs</a>
+<li><a href="#orgb30269b">2. HOWTOs</a>
 <ul>
-<li><a href="#orga2e82be">2.1. Fonts</a>
+<li><a href="#orgafbf37d">2.1. Fonts</a>
 <ul>
-<li><a href="#org39fab92">2.1.1. default font</a></li>
-<li><a href="#orgc20341c">2.1.2. how to let emacs find a font for you</a></li>
-<li><a href="#orga1398c5">2.1.3. troubleshooting</a></li>
+<li><a href="#org0435244">2.1.1. default font</a></li>
+<li><a href="#org473b6de">2.1.2. how to let emacs find a font for you</a></li>
+<li><a href="#org7ecc1bd">2.1.3. troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#org7f7bf3d">2.2. How to build an input method</a></li>
+<li><a href="#org494671c">2.2. How to build an input method</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org11f5fb9" class="outline-2">
-<h2 id="org11f5fb9"><span class="section-number-2">1.</span> mo-emacs-config</h2>
+<div id="outline-container-org75116e5" class="outline-2">
+<h2 id="org75116e5"><span class="section-number-2">1.</span> mo-emacs-config</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Ok, so this is my emacs config wiki
 </p>
 </div>
 
-<div id="outline-container-orgc469aba" class="outline-3">
-<h3 id="orgc469aba"><span class="section-number-3">1.1.</span> keyboard layout</h3>
+<div id="outline-container-org6541682" class="outline-3">
+<h3 id="org6541682"><span class="section-number-3">1.1.</span> keyboard layout</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Ok, you need a usable keyboard layout. This means, the caps lock key
@@ -287,8 +285,8 @@ Also I want the german and us layout switchable with win+space.
 </p>
 </div>
 
-<div id="outline-container-org80bc045" class="outline-4">
-<h4 id="org80bc045"><span class="section-number-4">1.1.1.</span> debian</h4>
+<div id="outline-container-orgd78abc9" class="outline-4">
+<h4 id="orgd78abc9"><span class="section-number-4">1.1.1.</span> debian</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 <code>/etc/default/keyboard</code>
@@ -310,8 +308,8 @@ BACKSPACE="guess"
 </div>
 </div>
 
-<div id="outline-container-orgb07ad6f" class="outline-4">
-<h4 id="orgb07ad6f"><span class="section-number-4">1.1.2.</span> other distros</h4>
+<div id="outline-container-orgb12800c" class="outline-4">
+<h4 id="orgb12800c"><span class="section-number-4">1.1.2.</span> other distros</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 see setxkbmap
@@ -324,55 +322,9 @@ see setxkbmap
 </div>
 </div>
 
-<div id="outline-container-orgf5e391e" class="outline-3">
-<h3 id="orgf5e391e"><span class="section-number-3">1.2.</span> Cursor blinking</h3>
+<div id="outline-container-org38647be" class="outline-3">
+<h3 id="org38647be"><span class="section-number-3">1.2.</span> Keybindings/Prefix keys</h3>
 <div class="outline-text-3" id="text-1-2">
-</div>
-<div id="outline-container-org10a17ac" class="outline-4">
-<h4 id="org10a17ac"><span class="section-number-4">1.2.1.</span> GUI emacs</h4>
-<div class="outline-text-4" id="text-1-2-1">
-<p>
-just disable it via menu and save your configuration. Alternatively:
-`M-x cursor-blink-mode`.
-</p>
-</div>
-</div>
-<div id="outline-container-org2c178c2" class="outline-4">
-<h4 id="org2c178c2"><span class="section-number-4">1.2.2.</span> Emacs in graphical terminal emulator</h4>
-<div class="outline-text-4" id="text-1-2-2">
-<p>
-disable cursor blinking in your terminal configuration
-</p>
-</div>
-</div>
-<div id="outline-container-org26c3437" class="outline-4">
-<h4 id="org26c3437"><span class="section-number-4">1.2.3.</span> Linux terminal</h4>
-<div class="outline-text-4" id="text-1-2-3">
-<p>
-use this command<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>:
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">echo -e '\033[?17;0;64c'
-</pre>
-</div>
-
-<p>
-You can put this in your <code>~/.bashrc</code>
-</p>
-<div class="org-src-container">
-<pre class="src src-bash">if [[ $- == *i* ]]; then
-    # bash is interactive
-    echo -e '\033[?17;0;64c'
-fi
-</pre>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org479c004" class="outline-3">
-<h3 id="org479c004"><span class="section-number-3">1.3.</span> Keybindings/Prefix keys</h3>
-<div class="outline-text-3" id="text-1-3">
 <p>
 I use a us keyboard layout, so <code>C-=</code> is nicely reachable and a
 suitable prefix key.
@@ -386,9 +338,9 @@ some IDEs).
 </p>
 </div>
 
-<div id="outline-container-org9426389" class="outline-4">
-<h4 id="org9426389"><span class="section-number-4">1.3.1.</span> Some of the bindings</h4>
-<div class="outline-text-4" id="text-1-3-1">
+<div id="outline-container-orgf9c40ce" class="outline-4">
+<h4 id="orgf9c40ce"><span class="section-number-4">1.2.1.</span> Some of the bindings</h4>
+<div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
 <pre class="src src-elisp">(global-set-key (kbd "C-= d") 'find-name-dired)
 (global-set-key (kbd "C-= l") 'find-lisp-find-dired)
@@ -402,9 +354,9 @@ some IDEs).
 </div>
 </div>
 
-<div id="outline-container-org7c6ea28" class="outline-3">
-<h3 id="org7c6ea28"><span class="section-number-3">1.4.</span> recent-files</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org6ca9829" class="outline-3">
+<h3 id="org6ca9829"><span class="section-number-3">1.3.</span> recent-files</h3>
+<div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-elisp">;; recent files
 (recentf-mode)
@@ -414,9 +366,9 @@ some IDEs).
 </div>
 </div>
 
-<div id="outline-container-org5102568" class="outline-3">
-<h3 id="org5102568"><span class="section-number-3">1.5.</span> emacs server</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-orgccd2c87" class="outline-3">
+<h3 id="orgccd2c87"><span class="section-number-3">1.4.</span> emacs server</h3>
+<div class="outline-text-3" id="text-1-4">
 <p>
 start a server if there isn't already one running:
 </p>
@@ -427,11 +379,41 @@ start a server if there isn't already one running:
 </pre>
 </div>
 </div>
+
+<div id="outline-container-orga52ebd2" class="outline-4">
+<h4 id="orga52ebd2"><span class="section-number-4">1.4.1.</span> Troubleshooting</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+You normally should not need this but if <code>emacsclient</code> doesn't find
+the emacs server read this:
+</p>
+
+<p>
+the server creates a unix domain socket. you can find out where by
+<code>C-h v server-socket-dir</code>
+</p>
+
+<p>
+sadly <code>emacsclient</code> doesn't use a config file to look up the
+<code>server-socket-dir</code>, you can only specify it on the command line:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">emacsclient --socket-name=/&lt;somedir&gt;/server &lt;file&gt;
+</pre>
 </div>
 
-<div id="outline-container-orga052f87" class="outline-3">
-<h3 id="orga052f87"><span class="section-number-3">1.6.</span> my multiple cursors shortcuts</h3>
-<div class="outline-text-3" id="text-1-6">
+<p>
+You can alias emacsclient with this socket name if it doesn't seem to
+change.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8357974" class="outline-3">
+<h3 id="org8357974"><span class="section-number-3">1.5.</span> my multiple cursors shortcuts</h3>
+<div class="outline-text-3" id="text-1-5">
 <p>
 I think MCs are cool but I don't use them much. I neither pretend
 these are the best bindings nor do I claim completeness.
@@ -457,13 +439,13 @@ accordingly.
 </div>
 </div>
 
-<div id="outline-container-orgd0ac5e9" class="outline-3">
-<h3 id="orgd0ac5e9"><span class="section-number-3">1.7.</span> Ansi-Term</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-org1b4aff1" class="outline-3">
+<h3 id="org1b4aff1"><span class="section-number-3">1.6.</span> Ansi-Term</h3>
+<div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-orgd6d04ca" class="outline-4">
-<h4 id="orgd6d04ca"><span class="section-number-4">1.7.1.</span> pasting</h4>
-<div class="outline-text-4" id="text-1-7-1">
+<div id="outline-container-org5b54579" class="outline-4">
+<h4 id="org5b54579"><span class="section-number-4">1.6.1.</span> pasting</h4>
+<div class="outline-text-4" id="text-1-6-1">
 <p>
 There is a function called <code>term-paste</code>, but it is bound to <code>S-insert</code>
 by default. Who wants that? Use
@@ -482,9 +464,9 @@ to rebind it to <code>C-c C-y</code>
 </div>
 </div>
 
-<div id="outline-container-orgf96bf2c" class="outline-4">
-<h4 id="orgf96bf2c"><span class="section-number-4">1.7.2.</span> tmacs</h4>
-<div class="outline-text-4" id="text-1-7-2">
+<div id="outline-container-orgc38dd67" class="outline-4">
+<h4 id="orgc38dd67"><span class="section-number-4">1.6.2.</span> tmacs</h4>
+<div class="outline-text-4" id="text-1-6-2">
 <p>
 To conveniently open files from terminal even on remote machines, I
 use <a href="https://github.com/mokrates/tmacs">tmacswrap</a>
@@ -513,9 +495,9 @@ and then open it with <code>M-x tmacs</code>.
 </div>
 </div>
 
-<div id="outline-container-org1b4afe7" class="outline-4">
-<h4 id="org1b4afe7"><span class="section-number-4">1.7.3.</span> emacsclient</h4>
-<div class="outline-text-4" id="text-1-7-3">
+<div id="outline-container-orgedd18fb" class="outline-4">
+<h4 id="orgedd18fb"><span class="section-number-4">1.6.3.</span> emacsclient</h4>
+<div class="outline-text-4" id="text-1-6-3">
 <p>
 Add to your <code>~/.bashrc</code>:
 </p>
@@ -534,18 +516,69 @@ Don't use <code>emacsclient -n</code> because that would confuse programs like
 </div>
 </div>
 
-<div id="outline-container-orgfd83872" class="outline-4">
-<h4 id="orgfd83872"><span class="section-number-4">1.7.4.</span> troubleshooting</h4>
-<div class="outline-text-4" id="text-1-7-4">
+<div id="outline-container-orgc75a9f0" class="outline-4">
+<h4 id="orgc75a9f0"><span class="section-number-4">1.6.4.</span> Forbid TRAMP to ask for password</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<p>
+It may be a problem if one mistypes on a password prompt in tramp,
+because emacs might lock up your account if there is a limit of
+unsuccessful logins.
+</p>
+
+<ul class="org-ul">
+<li>tell ssh to not ask for password</li>
+<li>override tramp function to ask for password and error out.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-elisp">;; ~/.emacs
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; tramp
+(setq tramp-ssh-controlmaster-options "-o PasswordAuthentication=no")
+
+;; don't ever ask for passwords!
+;; TODO: implement as advice
+(defun tramp-read-passwd (proc &amp;optional prompt)
+  (message "Tramp tries to ask for password, inhibiting")
+  (error "Tramp tried to ask for password")) ;; just fail
+
+</pre>
+</div>
+
+<p>
+To allow emacs to TRAMP somewhere, nonetheless, use a controlmaster
+connection
+</p>
+
+<pre class="example" id="orgb1e1d2e">
+# ~/.ssh/config
+
+# use this, if you have a domain. Else something might not work when using shortnames 
+# CanonicalizeHostname yes
+# CanonicalDomains my.domain.com
+
+host *
+    ControlMaster auto
+    ControlPath ~/.ssh/control/%C
+    ControlPersist 15m
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org4351e51" class="outline-4">
+<h4 id="org4351e51"><span class="section-number-4">1.6.5.</span> troubleshooting</h4>
+<div class="outline-text-4" id="text-1-6-5">
 </div>
 <ol class="org-ol">
-<li><a id="orgfe02703"></a>slow scrolling (emacs 26.1 has this problem)<br />
-<div class="outline-text-5" id="text-1-7-4-1">
+<li><a id="org9b3d5ea"></a>slow scrolling (emacs 26.1 has this problem)<br />
+<div class="outline-text-5" id="text-1-6-5-1">
 <p>
 In older emacs versions ansi-term was allegedly very slow clearing the
 screen. In version 26.1 the problem seems to be fixed, but still
 triggered in a different way: Scrolling fast, if the terminal buffer
-is already full. I solved this problem by using this<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>
+is already full. I solved this problem by using this<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
 </p>
 
 <div class="org-src-container">
@@ -559,11 +592,11 @@ is already full. I solved this problem by using this<sup><a id="fnr.2" class="fo
 </div>
 </li>
 
-<li><a id="orgb91aeee"></a>terminal resizing (emacs 26.1 has this problem)<br />
-<div class="outline-text-5" id="text-1-7-4-2">
+<li><a id="orgdd6ed6b"></a>terminal resizing (emacs 26.1 has this problem)<br />
+<div class="outline-text-5" id="text-1-6-5-2">
 <p>
 Resizing the terminal in which emacs runs doesn't inform inferior
-terminals that they should be resized, too. Use this<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>:
+terminals that they should be resized, too. Use this<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>:
 </p>
 
 <div class="org-src-container">
@@ -576,21 +609,21 @@ terminals that they should be resized, too. Use this<sup><a id="fnr.3" class="fo
 </div>
 </div>
 
-<div id="outline-container-org7288219" class="outline-3">
-<h3 id="org7288219"><span class="section-number-3">1.8.</span> flymake</h3>
-<div class="outline-text-3" id="text-1-8">
+<div id="outline-container-orga458fd8" class="outline-3">
+<h3 id="orga458fd8"><span class="section-number-3">1.7.</span> flymake</h3>
+<div class="outline-text-3" id="text-1-7">
 </div>
-<div id="outline-container-org8fc41dd" class="outline-4">
-<h4 id="org8fc41dd"><span class="section-number-4">1.8.1.</span> json (new version)</h4>
-<div class="outline-text-4" id="text-1-8-1">
+<div id="outline-container-org3efd12e" class="outline-4">
+<h4 id="org3efd12e"><span class="section-number-4">1.7.1.</span> json (new version)</h4>
+<div class="outline-text-4" id="text-1-7-1">
 <p>
 see: <a href="https://github.com/mokrates/json-simple-flymake">https://github.com/mokrates/json-simple-flymake</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgce3d678" class="outline-4">
-<h4 id="orgce3d678"><span class="section-number-4">1.8.2.</span> toml</h4>
-<div class="outline-text-4" id="text-1-8-2">
+<div id="outline-container-orga526e47" class="outline-4">
+<h4 id="orga526e47"><span class="section-number-4">1.7.2.</span> toml</h4>
+<div class="outline-text-4" id="text-1-7-2">
 <div class="org-src-container">
 <pre class="src src-elisp">(load "~/.emacs.d/tomlcheck.el")
 (add-hook 'conf-toml-mode-hook 'flymake-tomlcheck-setup)
@@ -604,8 +637,8 @@ see: <a href="https://github.com/mokrates/json-simple-flymake">https://github.co
 </div>
 
 <ol class="org-ol">
-<li><a id="org3a4cd2c"></a><code>tomlcheck.el</code><br />
-<div class="outline-text-5" id="text-1-8-2-1">
+<li><a id="org132546a"></a><code>tomlcheck.el</code><br />
+<div class="outline-text-5" id="text-1-7-2-1">
 <div class="org-src-container">
 <pre class="src src-elisp">;;; flymake-tomlcheck.el --- TOML linter with tomlcheck  -*- lexical-binding: t; -*-
 
@@ -698,9 +731,9 @@ see: <a href="https://github.com/mokrates/json-simple-flymake">https://github.co
 </ol>
 </div>
 
-<div id="outline-container-org00bbd3d" class="outline-4">
-<h4 id="org00bbd3d"><span class="section-number-4">1.8.3.</span> yaml</h4>
-<div class="outline-text-4" id="text-1-8-3">
+<div id="outline-container-org8a7e647" class="outline-4">
+<h4 id="org8a7e647"><span class="section-number-4">1.7.3.</span> yaml</h4>
+<div class="outline-text-4" id="text-1-7-3">
 <div class="org-src-container">
 <pre class="src src-elisp">(load "~/.emacs.d/flymake-yamllint.el")
 (add-hook 'yaml-mode-hook 'flymake-yamllint-setup)
@@ -715,9 +748,9 @@ see: <a href="https://github.com/mokrates/json-simple-flymake">https://github.co
 </div>
 </div>
 
-<div id="outline-container-org75929a3" class="outline-4">
-<h4 id="org75929a3"><span class="section-number-4">1.8.4.</span> python</h4>
-<div class="outline-text-4" id="text-1-8-4">
+<div id="outline-container-org6161483" class="outline-4">
+<h4 id="org6161483"><span class="section-number-4">1.7.4.</span> python</h4>
+<div class="outline-text-4" id="text-1-7-4">
 <p>
 see <a href="https://github.com/mokrates/flymaker">https://github.com/mokrates/flymaker</a>
 </p>
@@ -725,16 +758,16 @@ see <a href="https://github.com/mokrates/flymaker">https://github.com/mokrates/f
 </div>
 </div>
 
-<div id="outline-container-org52362a1" class="outline-3">
-<h3 id="org52362a1"><span class="section-number-3">1.9.</span> ide stuff, languages</h3>
-<div class="outline-text-3" id="text-1-9">
+<div id="outline-container-org8ac61de" class="outline-3">
+<h3 id="org8ac61de"><span class="section-number-3">1.8.</span> ide stuff, languages</h3>
+<div class="outline-text-3" id="text-1-8">
 <p>
-For flymaker, see <a href="#org7288219">1.8</a>
+For flymaker, see <a href="#orga458fd8">1.7</a>
 </p>
 </div>
-<div id="outline-container-org348595a" class="outline-4">
-<h4 id="org348595a"><span class="section-number-4">1.9.1.</span> python</h4>
-<div class="outline-text-4" id="text-1-9-1">
+<div id="outline-container-org4d1f732" class="outline-4">
+<h4 id="org4d1f732"><span class="section-number-4">1.8.1.</span> python</h4>
+<div class="outline-text-4" id="text-1-8-1">
 <div class="org-src-container">
 <pre class="src src-elisp">;;;;;;;; python
 (require 'auto-complete)
@@ -755,9 +788,9 @@ For flymaker, see <a href="#org7288219">1.8</a>
 </div>
 </div>
 
-<div id="outline-container-orgdd6d4d0" class="outline-4">
-<h4 id="orgdd6d4d0"><span class="section-number-4">1.9.2.</span> Golang</h4>
-<div class="outline-text-4" id="text-1-9-2">
+<div id="outline-container-orgf85b27f" class="outline-4">
+<h4 id="orgf85b27f"><span class="section-number-4">1.8.2.</span> Golang</h4>
+<div class="outline-text-4" id="text-1-8-2">
 <div class="org-src-container">
 <pre class="src src-elisp">;; golang
 (add-hook 'go-mode-hook #'eglot-ensure)
@@ -767,9 +800,9 @@ For flymaker, see <a href="#org7288219">1.8</a>
 </div>
 </div>
 
-<div id="outline-container-org7c4f476" class="outline-3">
-<h3 id="org7c4f476"><span class="section-number-3">1.10.</span> show git branch in modeline</h3>
-<div class="outline-text-3" id="text-1-10">
+<div id="outline-container-orgd205933" class="outline-3">
+<h3 id="orgd205933"><span class="section-number-3">1.9.</span> show git branch in modeline</h3>
+<div class="outline-text-3" id="text-1-9">
 <div class="org-src-container">
 <pre class="src src-elisp">(defun mo-term-git-mode--get-branch ()
   ;;(vc-call-backend 'git 'mode-line-string ".") ; doesn't work
@@ -790,23 +823,23 @@ For flymaker, see <a href="#org7288219">1.8</a>
 </div>
 </div>
 
-<div id="outline-container-orge2c4ad1" class="outline-3">
-<h3 id="orge2c4ad1"><span class="section-number-3">1.11.</span> <span class="todo TODO">TODO</span> ement.el (matrix client)</h3>
+<div id="outline-container-orga786f18" class="outline-3">
+<h3 id="orga786f18"><span class="section-number-3">1.10.</span> <span class="todo TODO">TODO</span> ement.el (matrix client)</h3>
 </div>
 </div>
 
 
-<div id="outline-container-orgefb3b18" class="outline-2">
-<h2 id="orgefb3b18"><span class="section-number-2">2.</span> HOWTOs</h2>
+<div id="outline-container-orgb30269b" class="outline-2">
+<h2 id="orgb30269b"><span class="section-number-2">2.</span> HOWTOs</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 
-<div id="outline-container-orga2e82be" class="outline-3">
-<h3 id="orga2e82be"><span class="section-number-3">2.1.</span> Fonts</h3>
+<div id="outline-container-orgafbf37d" class="outline-3">
+<h3 id="orgafbf37d"><span class="section-number-3">2.1.</span> Fonts</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org39fab92" class="outline-4">
-<h4 id="org39fab92"><span class="section-number-4">2.1.1.</span> default font</h4>
+<div id="outline-container-org0435244" class="outline-4">
+<h4 id="org0435244"><span class="section-number-4">2.1.1.</span> default font</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 <a href="https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#fonts">emacs::fonts</a>
@@ -830,8 +863,8 @@ Add a line to your init file, modifying the variable
 </div>
 
 
-<div id="outline-container-orgc20341c" class="outline-4">
-<h4 id="orgc20341c"><span class="section-number-4">2.1.2.</span> how to let emacs find a font for you</h4>
+<div id="outline-container-org473b6de" class="outline-4">
+<h4 id="org473b6de"><span class="section-number-4">2.1.2.</span> how to let emacs find a font for you</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
 <code>customize-face</code> expects from you that you know the name and all
@@ -857,8 +890,8 @@ save to your <code>~/.emacs</code>.
 </div>
 </div>
 
-<div id="outline-container-orga1398c5" class="outline-4">
-<h4 id="orga1398c5"><span class="section-number-4">2.1.3.</span> troubleshooting</h4>
+<div id="outline-container-org7ecc1bd" class="outline-4">
+<h4 id="org7ecc1bd"><span class="section-number-4">2.1.3.</span> troubleshooting</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <p>
 Sometimes emacs loses the fonts you define. That seems to happen with
@@ -876,8 +909,8 @@ piece of configuration, remove the fauly theme and restart your emacs.
 </div>
 </div>
 
-<div id="outline-container-org7f7bf3d" class="outline-3">
-<h3 id="org7f7bf3d"><span class="section-number-3">2.2.</span> How to build an input method</h3>
+<div id="outline-container-org494671c" class="outline-3">
+<h3 id="org494671c"><span class="section-number-3">2.2.</span> How to build an input method</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 I built one. See here: <a href="https://github.com/mokrates/quail-classic-german">quail classic german</a>
@@ -890,14 +923,10 @@ I built one. See here: <a href="https://github.com/mokrates/quail-classic-german
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="https://www.kernel.org/doc/html/latest/admin-guide/vga-softcursor.html">https://www.kernel.org/doc/html/latest/admin-guide/vga-softcursor.html</a> 
-</p></div></div>
-
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 <a href="https://www.emacswiki.org/emacs/AnsiTermHints#h5o-8">https://www.emacswiki.org/emacs/AnsiTermHints#h5o-8</a>
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 <a href="https://gnu.emacs.bug.narkive.com/nNqAqMND/bug-43126-26-1-ansi-term-not-resized-after-x-window-resize">https://gnu.emacs.bug.narkive.com/nNqAqMND/bug-43126-26-1-ansi-term-not-resized-after-x-window-resize</a>
 </p></div></div>
 
@@ -906,7 +935,7 @@ I built one. See here: <a href="https://github.com/mokrates/quail-classic-german
 </div></div>
 <div id="postamble" class="status">
 <p class="author">Author: mokrates</p>
-<p class="date">Created: 2024-02-11 So 17:42</p>
+<p class="date">Created: 2024-02-23 Fr 21:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
