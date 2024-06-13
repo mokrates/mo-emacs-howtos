@@ -101,8 +101,6 @@ accordingly.
     (global-set-key (kbd "C-\" R") 'mc/mark-all-in-region-regexp)
 #+end_src
 
-#+INCLUDE: "ansi-term.org" :minlevel 2
-
 ** flymake
 *** json (new version)
 see: https://github.com/mokrates/json-simple-flymake
@@ -164,10 +162,19 @@ For flymaker, see [[flymake]]
 
 ** TODO ement.el (matrix client)
 
+** Random stuff
+*** ~align-regexp~ shouldn't use tabs
+#+begin_src elisp
+  ;; stolen from https://stackoverflow.com/questions/22710040/emacs-align-regexp-with-spaces-instead-of-tabs
+  (defadvice align-regexp (around align-regexp-with-spaces activate)
+    (let ((indent-tabs-mode nil))
+      ad-do-it))
+#+end_src
 
 * HOWTOs
 #+INCLUDE: "howtos/fonts.org"
 #+INCLUDE: "howtos/input_methods.org"
+#+INCLUDE: "ansi-term.org" :minlevel 2
 
 * Footnotes
 
