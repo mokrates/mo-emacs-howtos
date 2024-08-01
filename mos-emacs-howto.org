@@ -66,6 +66,7 @@ start a server if there isn't already one running:
 #+end_src
 
 *** Troubleshooting
+**** emacsclient - socket
 You normally should not need this but if ~emacsclient~ doesn't find
 the emacs server read this:
 
@@ -81,6 +82,18 @@ sadly ~emacsclient~ doesn't use a config file to look up the
 
 You can alias emacsclient with this socket name if it doesn't seem to
 change.
+
+**** hanging xterm paste (also in putty)
+#+begin_src elisp
+  ;; in 27.2 ansi-term and some modification of xterm-paste don't work together so good
+  ;; (results in a hang which you can only get out of by ^G
+  ;; this solves it
+  (require 'term) ;; so this gets not overwritten the wrong way round
+  (defun term--xterm-paste (ev)
+    "Insert the text pasted in an XTerm bracketed paste operation."
+    (interactive "e")
+    (term-send-raw-string (cadr ev)))
+#+end_src
 
 ** my multiple cursors shortcuts
 I think MCs are cool but I don't use them much. I neither pretend
