@@ -54,6 +54,11 @@ some IDEs).
 #+begin_src elisp
   ;; recent files
   (recentf-mode)
+
+  ;; emacs loses the recent-files if terminal just dies
+  ;; so regularly save recent-files
+  (run-with-idle-timer 300 t 'recentf-save-list)
+
   (global-set-key (kbd "C-= f") 'recentf-open-files)
 #+end_src
 	
