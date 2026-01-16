@@ -1,0 +1,45 @@
+#+STARTUP: indent
+
+* Tramp-Methods
+
+I needed my own tramp method to change to another user.  The exact
+sudo line I have to use is defined in ~/etc/sudoers~.  So emacs can't
+just decide by itself in the sudo method how this line might look.
+
+This worked for me:
+
+#+begin_example
+(require 'tramp)
+;;; my own tramp method!?
+ 
+;;; for tmacswrap!
+;;; tab-completion doesn't work, and results in hang.
+;;; don't leave anything and use this syntax:
+;;; /ssh:%h|MYMETHOD:USER@HOST:PATH
+;;; see: /usr/share/emacs/27.2/lisp/net/tramp-sh.el.gz
+ 
+(add-to-list 'tramp-methods '("MYUSER1"                                        ;;; name of the new method
+                              (tramp-login-program "sudo")                     ;; the user changing command
+                              (tramp-login-args (("/bin/su" "-" "myuser1")))   ;; the user changing line arguments
+                              (tramp-remote-shell "/bin/sh")
+                              (tramp-remote-shell-login ("-l"))
+                              (tramp-remote-shell-args ("-c"))
+                              (tramp-connection-timeout 10)
+                              (tramp-session-timeout 300)))
+ 
+(add-to-list 'tramp-methods '("MYUSER2"                          ;; name of the new method
+                              (tramp-login-program "sudo")       ;; the user changing command
+                              (tramp-login-args (("/bin/su" "-" "myuser2" "-s" "/bin/bash")))  ;; the user changing line arguments
+                              (tramp-remote-shell "/bin/sh")
+                              (tramp-remote-shell-login ("-l"))
+                              (tramp-remote-shell-args ("-c"))
+                              (tramp-connection-timeout 10)
+                              (tramp-session-timeout 300)))
+ 
+;;; it seems this should be set or tramp just randomly hangs
+(add-to-list 'tramp-default-user-alist
+             `(,(concat "\\`" (regexp-opt '("MYUSER1" "MYUSER2")) "\\'")  ;; name the methods
+               nil "ignoredusername"))   ;; The above examples have the user hardcoded into them
+#+end_example
+
+

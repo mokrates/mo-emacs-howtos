@@ -194,6 +194,7 @@ For flymaker, see [[flymake]]
 * HOWTOs
 #+INCLUDE: "howtos/fonts.org"
 #+INCLUDE: "howtos/input_methods.org"
+#+INCLUDE: "howtos/tramp_methods.org"
 #+INCLUDE: "ansi-term.org" :minlevel 2
 
 * Footnotes
