@@ -8,7 +8,7 @@ just decide by itself in the sudo method how this line might look.
 
 This worked for me:
 
-#+begin_example
+#+begin_src elisp
 (require 'tramp)
 ;;; my own tramp method!?
  
@@ -40,6 +40,4 @@ This worked for me:
 (add-to-list 'tramp-default-user-alist
              `(,(concat "\\`" (regexp-opt '("MYUSER1" "MYUSER2")) "\\'")  ;; name the methods
                nil "ignoredusername"))   ;; The above examples have the user hardcoded into them
-#+end_example
-
-
+#+end_src
