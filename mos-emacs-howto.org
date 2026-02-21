@@ -2,6 +2,9 @@
 #+author: mokrates
 #+title: mos emacs howtos
 
+* Moved to codeberg!
+this is archived and old. Please go to mokrates.codeberg.page/mo-emacs-howtos
+
 * mo-emacs-config
 Ok, so this is my emacs config wiki
 

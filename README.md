@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> This has moved to https://codeberg.org/mokrates/mo-emacs-howtos
+
 mos emacs config
 ================
 
